@@ -45,8 +45,12 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 					include($_SERVER['DOCUMENT_ROOT'].'/_php/enrolled_students.php');
 				?>
 
-		<?php }	//End If LoginID && ClassID ?> 
-	</main>
+		<?php }	//End If LoginID && ClassID 
+		// ++++ Change: Added Catch for not logged in and ClassID missing 9/30 KM ++++
+		if(empty($ClassID)){echo "No ClassID Found.";}
+		if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>';}
+		?>	
+		</main>
 </div><!--End Wrapper -->
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/facfooter.php');?>
 </body>

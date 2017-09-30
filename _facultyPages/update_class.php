@@ -197,6 +197,9 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
 			?>
 		</form>
 	<?php }//End If !empty LoginID & ClassID
+		// ++++ Change: Added Catch for not logged in and ClassID missing 9/30 KM ++++
+		if(empty($ClassID)){echo "No ClassID Found.";}
+		if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>';}
 	else{
 		//-- ++++ Change: Added error msg. 9/8 KM ++++ -->
 		echo '<div class="error">Uhoh problem getting user login or ClassID</div>';
