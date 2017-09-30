@@ -15,7 +15,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 			if(!empty($_SESSION['LoginID'] && $ClassID )){
 				// --------------- Class Information -------------
 				// ++++ Change: Created Reusable Module to list class info 9/30 KM ++++
-				include($_SERVER['DOCUMENT_ROOT'].'/_php/class_information.php');	
+				include($_SERVER['DOCUMENT_ROOT'].'/_templates/class_information.php');	
 		?>	
 					<br/>
 					<br/>		
@@ -42,7 +42,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 					// ++++ Change: Moved to class_assign_do from stu_do 9/5 KM ++++
 					// ++++ Change: Added if statement to hide table if empty 9/24 KM ++++
 					// ++++ Change: Created Reusable Module to list students 9/30 KM ++++
-					include($_SERVER['DOCUMENT_ROOT'].'/_php/enrolled_students.php');
+					include($_SERVER['DOCUMENT_ROOT'].'/_templates/enrolled_students.php');
 				?>
 
 		<?php }	//End If LoginID && ClassID 
