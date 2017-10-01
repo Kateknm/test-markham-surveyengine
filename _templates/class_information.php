@@ -19,21 +19,21 @@ if(isset($_SESSION['LoginID'])){
 			$Year = $value['Year'];
 			$ExpDate = $value['ExpDate'];
 			$SemesterID = $value['SemesterID'];
-		}
+		}//End foreach
 		?>	
 		<!-- ++++ change: added the word Semester to heading ++++ 9/5 KM-->
-		<h1> <?php echo $ClassName . ' - '. $SemesterName . ' Semester' ?></h1>
+		<h2> <?php echo $ClassName . ' - '. $SemesterName . ' Semester' ?></h2>
 		<div>
 		<table>
 			<!-- Gives Class Information Recap -->
-			<tr><th>Class Item Number</th><td><?php echo $ClassID;?></td></tr>
+			<tr><th>Class Item Number</th><td><?php echo '<a href="class_page.php?cid='.$value['ClassID'].'">'.$value['ClassID'].'</a>';?></td></tr>
 			<tr><th>Class Number</th><td><?php echo $ClassNO;?></td></tr>
 			<tr><th>Class Name</th><td><?php echo $ClassName;?></td></tr>
 			<tr><th>Class Expires</th><td><?php echo $ExpDate;?></td></tr>
 			<tr><th>Semester</th><td><?php echo $SemesterName.' '.$Year;?></td></tr>
 			<!-- ++++ change: Added faculty name to table +++ 9/5 KM-->
 			<tr>
-				<th>Faculty Name</th>
+				<th>Current Instructor(s): </th>
 				<?php
 				// ----------------- Get Current Insts --------------
 					$instr = new CA_DO();
