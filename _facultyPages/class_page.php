@@ -21,7 +21,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 					<br/>		
 							<?php 
 								//Update and Delete class links.
-								echo '<span class="two"><a href="delete_class.php?cid='.$value['ClassID'].'"'.'><img class ="med_icon" src="../_images/delete.png" alt="Delete"></a>'; // delete class
+								echo '<span class="two"><a href="delete_class.php?cid='.$value['ClassID'].'"'.'><img class ="med_icon" src="../_images/delete_class.png" alt="Delete"></a>'; // delete class
 								echo '<br/><a href="delete_class.php?cid='.$value['ClassID'].'"'.'>Delete Class</a></span>';
 							?>	
 							<!-------------------------------------------------------------------->
