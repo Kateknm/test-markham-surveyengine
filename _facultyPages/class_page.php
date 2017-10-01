@@ -9,10 +9,15 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 <div class="wrapper">
 	<main>
 		<?php 
-			if(isset($_GET['cid'])){
-				$ClassID = $_GET['cid'];
-				}
-			if(!empty($_SESSION['LoginID'] && $ClassID )){
+		// ++++ Change: Added Catch for not logged in and ClassID missing 9/30 KM ++++
+		if(isset($_GET['cid'])){$ClassID = $_GET['cid'];}
+		if(empty($ClassID)){
+		//-- ++++ Change: Added error msg. 9/8 KM ++++ -->
+			echo '<div class="error">Uhoh problem getting user login or ClassID</div>';
+		}
+		else{
+			if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>'; }
+			else{
 				// --------------- Class Information -------------
 				// ++++ Change: Created Reusable Module to list class info 9/30 KM ++++
 				include($_SERVER['DOCUMENT_ROOT'].'/_templates/class_information.php');	
@@ -45,10 +50,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 					include($_SERVER['DOCUMENT_ROOT'].'/_templates/enrolled_students.php');
 				?>
 
-		<?php }	//End If LoginID && ClassID 
-		// ++++ Change: Added Catch for not logged in and ClassID missing 9/30 KM ++++
-		if(empty($ClassID)){echo "No ClassID Found.";}
-		if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>';}
+			<?php }} // End else LoginID && ClassID 
 		?>	
 		</main>
 </div><!--End Wrapper -->
