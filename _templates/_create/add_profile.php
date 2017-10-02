@@ -7,7 +7,7 @@ else{$LoginID = 0;}
 if($LoginID != 0){ // Faculty (Role Check in DO)
 ?>
 		<!-- ++++ Change: Created Reusable Module to add profiles 9/30 KM ++++ -->
-	<form name ="create-profile" method = "POST" action="#">
+
 			<table>
 				<tr>
 					<th><label>Name: </label></th>
@@ -36,18 +36,30 @@ if($LoginID != 0){ // Faculty (Role Check in DO)
 				<tr>
 				<th><label for="Role">Role: </label></th>
 					<td>
-						<input type="text" name="Email" id="Email" <?php if(!empty($Role)){echo 'value = "'.$Role.'"';} ?>>
+						<input type="text" name="Role" id="Role" <?php if(!empty($Role)){echo 'value = "'.$Role.'"';} ?>>
 					</td>
 				</tr>
 
 			</table>
 			<br/>
 			<input type="submit" value="Add Profile" name="AddProfile" id="AddProfile">
-	</form>
+		</form>
 	 <?php 
+
+		if(isset($_POST['AddProfile'])){	
+			$aProfile = new Profile(array(	
+			'LoginID' => $LoginID,
+			'Subj' => $Subj, //Passes 0 because not used but model requires
+			'Email' => $_POST['Email'],
+			'FName' => $_POST['FName'],
+			'LName' => $_POST['LName'], 
+			'Password'=> $Password,
+			'Role' => $Role
+			));	
+		}		
 }//End If LoginID 
+
 else{
 	echo "Building New Profile coming soon...";
 }
-
-	?> 
+	?>

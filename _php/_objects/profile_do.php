@@ -3,30 +3,20 @@
 	// -- Create
 		public function addProfile($values){
 			include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
-			// -- Check that user is faculty
-			$checkrole = "SELECT Role From login WHERE LoginID = '$LoginID'";			
-			$getRole = mysqli_query($con, $checkrole);
-			if (mysqli_num_rows($getRole) > 0) {
-				while($row = mysqli_fetch_array($getRole)){
-					$myRole = $row['Role'];
-					if ($myRole == 'Faculty' || ($Subj == $LoginID)){
-						// --Update Login				
-						$sql = "INSERT INTO login
-							(`LoginID`, `Email`, `Pword`, `Role`, `FName`, `LName`) 
-							VALUES (LoginID,?, ?, ?, ?, ?);";
-							$stmt = $con->prepare($sql);
-							$stmt->bind_param('sssi',  $values['Email'], $values['PWord'], $values['Role'], $values['FName'], $values['LName']);
-							$stmt->execute();
-							$stmt->close();
-						echo 'You created '. $values['FName'] . ' ' . $values['LName']."'s profile.";
-					}
-					else{ 
-					//Setup student add profile here.
-						echo 'There was an error.'; 
-					}
-				}
+			$number = rand(15, 30);
+			if($values['Password'] == 'GetRandom'){$Password = $values['LName'].$number; $PWord=SHA1($Password);}
+			
+			else{$PWord = SHA1($Password);}
+			// --Update Login				
+			$sql = "INSERT INTO login
+				(`Email`, `Pword`, `Role`, `FName`, `LName`) 
+				VALUES (?, ?, ?, ?, ?);";
+				$stmt = $con->prepare($sql);
+				$stmt->bind_param('sssss', $values['Email'], $PWord, $values['Role'], $values['FName'], $values['LName']);
+				$stmt->execute();
+				$stmt->close();
+			echo 'You created '. $values['FName'] . ' ' . $values['LName']."'s profile.";						
 			}
-		}
 	// -- Read 	
 
 		// -- update_student page

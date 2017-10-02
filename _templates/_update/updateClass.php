@@ -17,7 +17,7 @@
 	<div>
 	<!-- ++++ Change: Created reusable module for semester_select 9/30 KM-->
 		<?php	
-		include($_SERVER['DOCUMENT_ROOT'].'/_templates/semester_select.php');
+		include($_SERVER['DOCUMENT_ROOT'].'/_templates/_update/semester_select.php');
 		?>				
 	</div>
 	<br/>

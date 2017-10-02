@@ -23,7 +23,6 @@ if(isset($_SESSION['LoginID'])){
 		?>	
 		<!-- ++++ change: added the word Semester to heading ++++ 9/5 KM-->
 		<h2> <?php echo $ClassName . ' - '. $SemesterName . ' Semester' ?></h2>
-		<div>
 		<table>
 			<!-- Gives Class Information Recap -->
 			<tr><th>Class Item Number</th><td><?php echo '<a href="class_page.php?cid='.$value['ClassID'].'">'.$value['ClassID'].'</a>';?></td></tr>
