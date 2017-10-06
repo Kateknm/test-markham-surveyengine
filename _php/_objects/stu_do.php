@@ -1,6 +1,18 @@
 <?php
 	class Stud_DO{
-	// -- Create
+	// -- Read
+			public function thisStud($FName, $LName, $Email){
+			if(!empty($StID)){
+				include("../_php/config.php");
+				$sql = "SELECT login.LoginID, login.LName, login.FName, login.Email
+					FROM login
+					WHERE login.LName = '$LName' && login.FName='$FName' && login.Email='$Email' && Role='Student'";	
+				$getStud = mysqli_query($con, $sql);		
+				//output data of each row
+				return $login.LoginID;
+			}
+		}
+	
 		
 	// -- Read 	
 

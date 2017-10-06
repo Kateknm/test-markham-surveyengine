@@ -2,11 +2,13 @@
 // ++++ Change: Added as a stub page 9/24 KM ++++
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
-require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_do.php');	
-require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
+require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/stu_do.php');
+require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/profile_do.php');	
+require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/profile_model.php');	
+$P='add_student';
 ?>
 <div class="wrapper">
 	<main>
@@ -21,14 +23,10 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
 				else{
 					?>
 					<h2>Create New Student</h2>
-					<form name ="create-profile" method = "POST" action="#">	
-							<?php 					
-								$Role = 'Student';
-								$Password = 'GetRandom';
-								$Subj = 0;
+					<?php
 								include($_SERVER['DOCUMENT_ROOT'].'/_templates/_create/add_profile.php');
 				}
-			}		
+			}	
 			?>
 	</main>
 

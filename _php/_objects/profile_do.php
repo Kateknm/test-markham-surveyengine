@@ -2,13 +2,14 @@
 	class Profile_DO{
 	// -- Create
 		public function addProfile($values){
+			echo $values['Password'];
 			include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 			$number = rand(15, 30);
 			if($values['Password'] == 'GetRandom'){$Password = $values['LName'].$number; $PWord=SHA1($Password);}
 			
 			else{$PWord = SHA1($Password);}
 			// --Update Login				
-			$sql = "INSERT INTO login
+			$sql = "using mga_db; INSERT INTO login
 				(`Email`, `Pword`, `Role`, `FName`, `LName`) 
 				VALUES (?, ?, ?, ?, ?);";
 				$stmt = $con->prepare($sql);

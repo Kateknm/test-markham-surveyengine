@@ -1,13 +1,16 @@
 <?php 
-require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/profile_do.php');	
-require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/profile_model.php');	
-
 if(isset($_SESSION['LoginID'])){$LoginID = $_SESSION['LoginID'];}
 else{$LoginID = 0;}
 if($LoginID != 0){ // Faculty (Role Check in DO)
 ?>
 		<!-- ++++ Change: Created Reusable Module to add profiles 9/30 KM ++++ -->
-
+			<form name ="create-profile" method = "POST" action = '#'>	
+			<?php 	
+				if($P=='add_student'){
+				$Role = 'Student';
+				$Password = 'GetRandom';
+				$Subj = 0;
+				}?>
 			<table>
 				<tr>
 					<th><label>Name: </label></th>
@@ -45,19 +48,24 @@ if($LoginID != 0){ // Faculty (Role Check in DO)
 			<input type="submit" value="Add Profile" name="AddProfile" id="AddProfile">
 		</form>
 	 <?php 
-
 		if(isset($_POST['AddProfile'])){	
+			echo 'posted';
+			// ++++ Change: Added Variables for getting student_info for new profile 10/5 KM ++++
+			$Email = $_POST['Email'];
+			$FName = $_POST['FName'];
+			$LName = $_POST['LName'];
+			echo $Email.',' .$FName.','. $LName;
 			$aProfile = new Profile(array(	
-			'LoginID' => $LoginID,
-			'Subj' => $Subj, //Passes 0 because not used but model requires
-			'Email' => $_POST['Email'],
-			'FName' => $_POST['FName'],
-			'LName' => $_POST['LName'], 
+			'LoginID' => $_SESSION['LoginID'],	
+			'Role' => $Role,
 			'Password'=> $Password,
-			'Role' => $Role
+			'Subj' => $Subj, //Passes 0 because not used but model requires
+			'Email' => $Email,
+			'FName' => $FName,
+			'LName' => $LName
 			));	
-		}		
-}//End If LoginID 
+		}	
+	}//End If LoginID 
 
 else{
 	echo "Building New Profile coming soon...";

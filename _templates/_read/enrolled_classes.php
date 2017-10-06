@@ -44,7 +44,8 @@ if(!empty($rows)){
 				echo '<td>'.$value['SemesterName'].' '.$value['Year'].'</td>';
 				echo '<td>'.$value['ExpDate'].'</td>';
 				echo '<td><a href="../_templates/_delete/del_class_assignment.php?cid=';
-				echo 	$value['ClassID'].'&stid='.$StID.'">';
+				echo 	$value['ClassID'].'&stid='.$StID.'&p='.$P;
+				echo '">';
 				echo 	'<img class ="small_icon" src="../_images/delete.png" alt="Delete">';
 				echo 	'</a></td>'; // delete class assignment
 			echo '</tr>';	

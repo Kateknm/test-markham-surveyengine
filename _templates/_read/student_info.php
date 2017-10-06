@@ -1,13 +1,23 @@
 <table>
+
 <!-- ------------- Student Account Info ----------->
 <?php
-$student = new Stud_DO();	
-$rows=$student->listStud($StID);
+if(empty($StID)){
+	// ++++ Change: Getting student_info for new profile 10/5 KM ++++
+	//Match by Student Name & Email	
+	$student = new Stud_DO();	
+	$row=$student->thisStud($FName, $LName, $Email);
+	$StID = $row['login.LoginID'];
+	echo $StID;
+}
+if(!empty($StID)){
+$students = new Stud_DO();	
+$rows=$students->listStud($StID);
 foreach ($rows as $value){
 $FName = $value['FName'];
 $LName = $value['LName'];
 $Email = $value['Email'];		
-?>			
+?>
 <tr><th>Student Name</th><td><?php echo  $FName. ' ' . $LName;?></td></tr>
 <tr><th>Student ID </th><td><?php echo $StID;?></td></tr>
 <tr><th>Email</th><td><?php echo '<a href="mailto:' . $Email.'">' . $Email . '</a>';?></td></tr>
@@ -24,4 +34,7 @@ $Email = $value['Email'];
 	<br/>
 	<?php echo '<a href="../_facultyPages/update_student.php?&stid='.$StID.'">Update Student Profile</a>';?> 
 </span>
+<?php 
+} //End !empty $StID
+?>
 </table>
