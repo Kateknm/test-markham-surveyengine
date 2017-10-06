@@ -48,22 +48,25 @@ if($LoginID != 0){ // Faculty (Role Check in DO)
 			<input type="submit" value="Add Profile" name="AddProfile" id="AddProfile">
 		</form>
 	 <?php 
+		$aProfile = new Profile_DO();
 		if(isset($_POST['AddProfile'])){	
 			echo 'posted';
 			// ++++ Change: Added Variables for getting student_info for new profile 10/5 KM ++++
 			$Email = $_POST['Email'];
 			$FName = $_POST['FName'];
 			$LName = $_POST['LName'];
-			echo $Email.',' .$FName.','. $LName;
+			//echo $Email.',' .$FName.','. $LName;
+			//echo $LoginID;
 			$aProfile = new Profile(array(	
-			'LoginID' => $_SESSION['LoginID'],	
+			'LoginID' => $LoginID,	
 			'Role' => $Role,
 			'Password'=> $Password,
 			'Subj' => $Subj, //Passes 0 because not used but model requires
 			'Email' => $Email,
 			'FName' => $FName,
 			'LName' => $LName
-			));	
+			));
+			$aProfile->addProfile();
 		}	
 	}//End If LoginID 
 

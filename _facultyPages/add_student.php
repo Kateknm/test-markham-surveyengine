@@ -24,7 +24,7 @@ $P='add_student';
 					?>
 					<h2>Create New Student</h2>
 					<?php
-								include($_SERVER['DOCUMENT_ROOT'].'/_templates/_create/add_profile.php');
+					 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_create/add_profile.php');
 				}
 			}	
 			?>

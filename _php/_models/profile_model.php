@@ -20,12 +20,12 @@ public function __get($property){
 public function __construct($arr){
 if(isset($arr['LoginID'])){
 	$this->LoginID = $arr['LoginID'];
-	$this->Role =$arr['Role'];
-	$this->Password=$arr['Password'];
+	$this->Role = $arr['Role'];
+	$this->Password = $arr['Password'];
 	$this->Subj = $arr['Subj'];	  
 	$this->Email = $arr['Email'];
 	$this->FName = $arr['FName'];
-	$this->LName= $arr['LName'];
+	$this->LName = $arr['LName'];
 	$this->do = new Profile_DO();
 }}
 
