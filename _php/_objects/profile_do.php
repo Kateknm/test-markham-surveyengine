@@ -2,13 +2,14 @@
 	class Profile_DO{
 	// -- Create
 		public function addProfile($values){
-			echo $values['Password'];
+			
 			include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 			$number = rand(15, 30);
+			$Email = $values['Email'];
 			if($values['Password'] == 'GetRandom'){
-			$Password = $values['LName'].$number; $PWord=SHA1($Password);
-			}
-			
+			$Password = $values['LName'].$number; 
+			$PWord=SHA1($Password);
+			}			
 			else{$PWord = SHA1($Password);}
 			// --Update Login				
 			$sql = "INSERT INTO login
@@ -18,8 +19,17 @@
 				$stmt->bind_param('sssss', $values['Email'], $PWord, $values['Role'], $values['FName'], $values['LName']);
 				$stmt->execute();
 				$stmt->close();
-			echo 'You created '. $values['FName'] . ' ' . $values['LName']."'s profile.";						
-			}
+			echo 'You created '. $values['FName'] . ' ' . $values['LName']."'s profile.</br> Temporary Password is:". $Password;	
+			
+			$new = "SELECT LoginID FROM login WHERE Email='$Email' && Pword='$PWord' limit 1";
+			$newProf = mysqli_query($con, $new);
+			$all_rows = array();
+				while($row = mysqli_fetch_array($newProf)){
+					$all_rows[]=$row;
+				}
+				return $all_rows;
+		}
+
 	// -- Read 	
 
 		// -- update_student page

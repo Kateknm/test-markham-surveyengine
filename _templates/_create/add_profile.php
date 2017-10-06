@@ -48,15 +48,14 @@ if($LoginID != 0){ // Faculty (Role Check in DO)
 			<input type="submit" value="Add Profile" name="AddProfile" id="AddProfile">
 		</form>
 	 <?php 
+		//Need to limit this to 1 account use email & name match
 		$aProfile = new Profile_DO();
 		if(isset($_POST['AddProfile'])){	
-			echo 'posted';
 			// ++++ Change: Added Variables for getting student_info for new profile 10/5 KM ++++
 			$Email = $_POST['Email'];
 			$FName = $_POST['FName'];
 			$LName = $_POST['LName'];
-			//echo $Email.',' .$FName.','. $LName;
-			//echo $LoginID;
+
 			$aProfile = new Profile(array(	
 			'LoginID' => $LoginID,	
 			'Role' => $Role,
@@ -66,8 +65,13 @@ if($LoginID != 0){ // Faculty (Role Check in DO)
 			'FName' => $FName,
 			'LName' => $LName
 			));
-			$aProfile->addProfile();
+			$rows = $aProfile->addProfile();
+			foreach($rows as $value){
+				$newID=$value['LoginID'];
+				echo '<br/>New ID: '. $newID;
+			}
 		}	
+		
 	}//End If LoginID 
 
 else{
