@@ -65,7 +65,7 @@ CREATE TABLE `login` (
   `LoginID` int(6)  NOT NULL AUTO_INCREMENT,
   `Email` varchar(60) NOT NULL,
   `Pword` varchar(40) NOT NULL,
-  `Role` varchar(8) NOT NULL DEFAULT "Student",
+  `Role` varchar(8) NOT NULL,
   `FName` varchar(15) NOT NULL,
   `LName` varchar(20) NOT NULL,
   `LModified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

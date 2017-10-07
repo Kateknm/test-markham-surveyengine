@@ -14,13 +14,11 @@ Classes:
 ***** Classes and semesters need to have a way to expire so they don’t show up after the course is complete. Maybe the professor can set an expiration date when they are adding the course? (--Yes--)
 * Needs a way to add a new course, connect it to the teacher, and connect it to the students.
 ***** Needs a way for the professor to delete a course.
-
+* When you click on a course it needs to go to a page with three buttons: reporting (which already exists), manage students, and manage course. 
 *** In manage course they need to be able to edit the information on the course and attach the created surveys to it.
-** In the manage class section they need to be able to add students, delete students, reset passwords, edit profiles, ect. if needed. 
+* In the manage class section they need to be able to add students, delete students, reset passwords, edit profiles, ect. if needed. 
 * Also in the manage classes section they need to be able to place the students in groups and move the students from group to group.
   Either that, or we need a manage groups button to be added to the page after you click on a course. (See number 5 on this list to see what page I’m talking about)
-* When you click on a course it needs to go to a page with three buttons: reporting (which already exists), manage students, and manage course. 
-
 Reporting:
 * Clean up individual reports for students. 
 * Average the individual evaluations scores
