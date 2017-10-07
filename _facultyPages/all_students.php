@@ -7,6 +7,8 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/stu_do.php');
 
 <h2 class="center">All Students</h2>
 <!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->
+<div class="container-fluid" style="padding: 20px 0px 15px 0px;">
+<!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->
 <!-- ++++ Change: Created list module for reuse 10/1 KM ++++ -->
 <?php
 // ++ Work Flag
