@@ -8,6 +8,11 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/stu_do.php');
 <h2 class="center">All Students</h2>
 <!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->
 <!-- ++++ Change: Created list module for reuse 10/1 KM ++++ -->
+<?php
+// ++ Work Flag
+// ++ Add Buttons to this table in all_student_list.php
+// ++
+?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/all_student_list.php');?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_footers/facfooter.php');?>
 

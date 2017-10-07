@@ -1,25 +1,12 @@
 <?php
 	class Stud_DO{
-	// -- Read
-			public function thisStud($FName, $LName, $Email){
-			if(!empty($StID)){
-				include("../_php/config.php");
-				$sql = "SELECT login.LoginID, login.LName, login.FName, login.Email
-					FROM login
-					WHERE login.LName = '$LName' && login.FName='$FName' && login.Email='$Email' && Role='Student'";	
-				$getStud = mysqli_query($con, $sql);		
-				//output data of each row
-				return $login.LoginID;
-			}
-		}
 	
-		
 	// -- Read 	
 
 		// -- Student Info Page -- Update and Delete Accessible
 		public function listStud($StID){
 			if(!empty($StID)){
-				include("../_php/config.php");
+				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 				$sql = "SELECT login.LoginID, login.LName, login.FName, login.Email
 					FROM login
 					WHERE login.LoginID = '$StID' && Role='Student'";	
@@ -36,7 +23,7 @@
 		// -- All Student Page --
 		public function listAll($FID){
 			if(!empty($FID)){
-				include("../_php/config.php");
+				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 				//  -- Check that user is faculty
 				$checkrole = "SELECT Role From login WHERE LoginID = '$FID'";			
 				$getRole = mysqli_query($con, $checkrole);
@@ -63,7 +50,7 @@
 		// -- My Student Page --
 		public function listmyStuds($FID){
 			if(!empty($FID)){
-				include("../_php/config.php");
+				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 				//  -- Check that user is faculty
 				$checkrole = "SELECT Role From login WHERE LoginID = '$FID'";			
 				$getRole = mysqli_query($con, $checkrole);

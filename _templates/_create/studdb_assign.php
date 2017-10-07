@@ -1,12 +1,12 @@
 <?php ?>
 <div>
+
 	<!-- ++++ Change: Created All Student Dropbox module for reuse 10/1 KM ++++ 
 	<!-- ++++ Change: Added student assignment add dropbox from class_assign_do 9/8 KM ++++ -->
 	<form name ="assign-student" method = "POST">
 	<label for="SID">Assign: </label>	
 	<?php
-		// -- calls dropdown box  --  drop_do.php
-		// -- all student list
+		//Selection Box - Select from all student list
 		$studo = new Drop_DO($_SESSION['LoginID']);
 		$rows=$studo->studSelect();
 		echo '<select name="SID" required>'; // Open
@@ -23,6 +23,7 @@
 	// ++++ Change Standalone student assign to be used with dropbox or list 10/1 KM ++++
 	if(isset($_POST['AddStud']) && $_POST['SID']!='none'){	
 	echo $_POST['SID'];
+		$assStud = new CA_DO();
 		$assStud = new Class_Assign(array(
 			'LoginID' => $_SESSION['LoginID'], // User
 			'Subj' => $_POST['SID'], // Class Assign Subject - New Student
@@ -30,7 +31,7 @@
 		$assStud->assignClass();
 		
 		if($assStud){
-			echo "<script>window.open('assign_students.php?cid=$ClassID','_self') </script>"; // reloads page to show updated information
+			echo "<script>window.open('class_page.php?cid=$ClassID','_self') </script>"; // reloads page to show updated information
 		}			
 	}
 	else if(isset($_POST['AddStud']) && $_POST['SID']=='none'){

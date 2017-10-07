@@ -4,6 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 // ++++ Change: Moved to this procedure to class_assign_do (previously part of stu_do) 9/5 KM ++++
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
+require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/group_assign_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/group_assign_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
@@ -64,6 +65,10 @@ $P='class_page';
 							</div>
 							<br/>
 							<?php 
+							
+								// ++ Work Flag
+								// ++ Add Buttons to this table in enrolled_students.php
+								// ++
 								
 								// Lists student's assigned to a class. Hides table if empty. 
 								// ++++ Change: Created Reusable Module to list students 9/30 KM ++++
