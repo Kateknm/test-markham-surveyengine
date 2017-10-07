@@ -1,5 +1,4 @@
 <?php
-// ++++ Change: Adjusted indentation 9/8 KM ++++
 
 //Change: Updated for consistant paths.
 include($_SERVER['DOCUMENT_ROOT'].'/_php/session.php');
@@ -7,12 +6,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 
 //redirect to student dashboard
 if(isset($_SESSION['Role'])){
-	if($Role!= 'Faculty'){
-		if($Role='Student'){ header('Location: '.$server.'/_studentPages/studentDashboard.php');}
+	if($Role!= 'Student'){
+		if($Role='Faculty'){ header('Location: ../_facultyPages/facultyDashboard.php');}
 		else{
 			$_SESSION['ErrorBlock'] = "Please Login.";
-			header('Location: '.$server.'/login.php');
-		}
+			header('Location: ../login.php');
+			}
 	}
 }
 /*--
@@ -27,19 +26,20 @@ else{ echo "Role not defined.";}
 <html lang="en">
 <head><!-- Builds basis of site. Sets style1 as the CSS for this page. -->
 	<meta charset="utf-8">
-	<title>Knightly Knowledge - Faculty Dashboard</title>
+	<title>Knightly Knowledge - Student Dashboard</title>
 	<?php echo '<link rel="stylesheet" href="'.$server.'/_css/bootstrap.min.css" />';?>
 	<?php echo '<link rel="stylesheet" href="'.$server.'/_css/style1.css" />';?>
 	<?php echo '<script src="'.$server.'/_js/dashboard.js" type ="text/javascript"></script>';?>
 </head>
 <body>
 	<header>
-		<a href="facultyDashboard.php">
+		<a href="studentDashboard.php">
 			<?php echo '<img class="logo" src="'.$server.'/_images/knight.jpg" alt="Knight" />'; ?>
 		</a>
 	</header>
-
+	
 	<div id="purpleBar">
-		<span class="lead">Knightly Knowledge - Faculty Dashboard</span>
+		<span class="lead">Knightly Knowledge - Student Dashboard</a>
 	</div>
+</body>
 <?php ?>
