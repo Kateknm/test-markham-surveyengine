@@ -35,9 +35,9 @@ $P='class_page';
 					<br/>		
 							<?php 
 								//Update class, Delete class & Add Student links.
-								echo '<span class="two"><a href="delete_class.php?cid='.$value['ClassID'].'">';
+								echo '<span class="two"><a href="../../_templates/_delete/delete_class.php?cid='.$value['ClassID'].'">';
 								echo 	'<img class ="med_icon" src="../_images/delete_class.png" alt="Delete"></a>'; // delete class
-								echo '<br/><a href="delete_class.php?cid='.$value['ClassID'].'"'.'>Delete Class</a></span>';
+								echo '<br/><a href="../../_templates/_delete/delete_class.php?cid='.$value['ClassID'].'"'.'>Delete Class</a></span>';
 							?>	
 							<!-------------------------------------------------------------------->
 							<?php

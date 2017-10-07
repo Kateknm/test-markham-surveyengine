@@ -57,7 +57,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_model.php');
 					if($delClass){
 						echo '<br/>Success! <br/>You have deleted '.$value['ClassID']. ' ' .$value['ClassName'];
 						echo '<br/>Do not resubmit the form.</br>';
-						echo "<script>window.open('../_facultyPages/classes.php','_self') </script>";
+						echo "<script>window.open('../../_facultyPages/classes.php','_self') </script>";
 						}
 				}
 		}//End If !empty LoginID & ClassID
