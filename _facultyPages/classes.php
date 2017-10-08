@@ -37,7 +37,7 @@ $P='classes';
 					echo '<td>'.$value['SemesterName'].' '.$value['Year'].'</td>';
 					echo '<td>'.$value['ExpDate'].'</td>';
 					// -- ++++ Change: Added Leave Class (un-assign), Delete Class, Update Class Buttons 9/29 KM ++++
-					echo '<td><a href="../_php/del_class_assignment.php?cid='.$value['ClassID'].'&fid='.$_SESSION['LoginID'];
+					echo '<td><a href="../../_templates/_delete/del_class_assignment.php?cid='.$value['ClassID'].'&fid='.$_SESSION['LoginID'];
 					echo 	'"><img class ="small_icon" src="../_images/person_delete.png" alt="Remove Yourself"></a></td>'; // delete class assignment
 					echo '<td><a href="../../_templates/_delete/delete_class.php?cid='.$value['ClassID'].'&p='. $P;
 					echo 	'"><img class ="small_icon" src="../_images/delete.png" alt="Delete Class"></a></td>'; // delete class
