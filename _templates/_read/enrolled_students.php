@@ -9,7 +9,6 @@
 	if(isset($_GET['cid'])){$ClassID = $_GET['cid'];}
 	if(isset($_SESSION['LoginID'])){
 		 if(!empty($ClassID )){
-		
 			$cado = new CA_DO();
 			$rows=$cado->listClassStuds($ClassID);
 			if(!empty($rows)){
@@ -24,13 +23,20 @@
 							$Subj=$value['LoginID'];
 							echo '<tr>';
 								// Links student_mgt_pg to Name 
-								echo '<td>' . '<a href="stud_mgmt_pg.php?stid=' . $value['LoginID'] . '">';
+								echo '<td>' . '<a href="stud_mgmt_pg.php?stid=' . $Subj . '">';
 								echo 	$value['FName'] . ' ' . $value['LName'] . '</a></td>'; // links to student_mgt_pg for this student
 								// Includes mail to email link
 								echo '<td>' . '<a href="mailto:' . $value['Email'].'">' . $value['Email'] . '</a></td>';
 								// ++++ Change: Created group_assignments as reusable module KM ++++ 
-								
 								include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/group_assignments.php');
+								// ++++ Change: Added buttons delete profile, delete class assignment KM ++++ 
+								echo '<td><a href="../../_templates/_delete/del_class_assignment.php?cid='.$ClassID.'&stid='.$Subj.'&p='.$P;
+								echo 	'"><img class ="small_icon" src="../_images/person_delete.png" alt="Remove Student"></a></td>'; // delete class assignment						
+								echo '<td>';
+									echo '<a href="../../_templates/_delete/delete_profile.php?cid='.$ClassID.'&stid='.$Subj.'&p='.$P.'">';
+									echo '<img class ="small_icon" src="../_images/delete.png" alt="Delete Student"></a>';// delete student
+								echo '</td>'; 				
+								
 							echo '</tr>';
 						}	
 					?>

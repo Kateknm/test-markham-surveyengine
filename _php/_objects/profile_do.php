@@ -37,7 +37,7 @@
 
 	// -- Read 	
 
-		// -- update_student page
+		// -- list profile data
 		public function listProfile($Subj){
 			if(!empty($Subj)){
 				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
@@ -53,7 +53,7 @@
 				return $all_rows;
 			}
 		}
-// -- Update Student Info		
+// -- Update Info		
 	public function updateProfile($values){
 		if(!empty($values)){
 			$LoginID = $values['LoginID'];
@@ -85,17 +85,17 @@
 		}
 	}	
 			
-// -- Delete Student
-	public function deleteStudent($values){
+// -- Delete
+	public function deleteProfile($values){
 			if(!empty($values)){
 				$LoginID = $values['LoginID'];
-				$Subj = $values['Subj'];
-				echo $LoginID . ' '. $Subj;
+				$Subj = $values['Subj'];				
 				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 				// -- Check that user is faculty
 				$checkrole = "SELECT Role From login WHERE LoginID = '$LoginID'";			
-				$getRole = mysqli_query($con, $checkrole);
-				if (mysqli_num_rows($getRole) > 0){
+				$getRole = mysqli_query($con, $checkrole); 
+				//User is faculty or deleting their own profile.
+				if((mysqli_num_rows($getRole)) > 0 || ($LoginID == Subj)){
 					while($row = mysqli_fetch_array($getRole)){
 						$myRole = $row['Role'];
 						if ($myRole == 'Faculty'){

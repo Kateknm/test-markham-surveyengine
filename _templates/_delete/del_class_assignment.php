@@ -9,15 +9,15 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
 
 // ++++ Change: Added Check for sending page 10/5/17 KM ++++
 if(!empty($_GET['p'])){
-$returnME= $_GET['p']; // Student
+$returnME= $_GET['p']; // Send Page
 }
 
 // ++++ Change: If statements to distinguish between faculty and student un-assign.php 9/29 KM ++++
 if(!empty($_GET['stid'])){
-$Subj= $_GET['stid']; // Student
+	$Subj= $_GET['stid']; // Student
 }
 if(!empty($_GET['fid'])){
-$Subj= $_GET['fid']; // facultyHeader
+	$Subj= $_GET['fid']; // facultyHeader
 }
 $LoginID = $_SESSION['LoginID']; // Current User
 $ClassID = $_GET['cid']; 
@@ -30,12 +30,11 @@ $DeleteClassA->delClassA();
 
 if($returnME){
 	// ++++ Change: If statements to distinguish between faculty and student to reload appropriate page.php 9/29 KM ++++
-	if(!empty($_GET['stid'])){echo "<script>window.open('../../../_facultyPages/".$returnME.".php?stid=$Subj', '_self') </script>";}	
-	if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/".$returnME.".php','_self') </script>";}
+	if(!empty($_GET['stid'])){echo "<script>window.open('../../../_facultyPages/".$returnME.".php?stid=".$Subj."&cid=".$ClassID."', '_self') </script>";}	
+	if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/".$returnME.".php?fid=".$Subj."&cid=".$ClassID."','_self') </script>";}
 }
 else{
 	echo '<div>No sending page info.</div>';
-	if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/classes.php','_self') </script>";}
-	
+	if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/classes.php','_self') </script>";}	
 }
 ?>

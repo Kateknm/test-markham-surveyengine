@@ -47,12 +47,13 @@ public function updateProfile(){
 	return $r;
 }
 
-public function deleteStudent(){
-	return $this->do->deleteStudent($this->all_params());
+public function deleteProfile(){
+	return $this->do->deleteProfile($this->all_params());
 }
 
 public function addProfile(){
 	return $this->do->addProfile($this->all_params());
 }
+
 }
  ?>
