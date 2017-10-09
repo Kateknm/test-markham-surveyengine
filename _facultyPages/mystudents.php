@@ -3,6 +3,7 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/stu_do.php');
+$P='mystudents';
 ?>
 
 <h2 class="center">Your Students</h2>

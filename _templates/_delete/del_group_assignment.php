@@ -4,7 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/group_assign_model.php');
 
 // Change: Added Group Removal with Class Removal Students 10/8 KM ++++
 //If sending page is delete_class_assignment
-if($P == 'del_class_assignment'){
+if(isset($P)){if($P == 'del_class_assignment'){
 	$gado = new GA_DO();
 	$rows=$gado->groupsByLogin($Subj, $ClassID);
 	//if group assignment exists
@@ -22,27 +22,28 @@ if($P == 'del_class_assignment'){
 		'GroupID' => $GroupID));	
 		$DeleteGroupA->delGroupA();
 	}
-}
+}}
 
 // Change: Separated remove group only from remove group with class remove. 10/8 KM
 //If sending page is not delete_class_assignment
-if($P != 'del_class_assignment'){
+if(!isset($P)){
 	// Supports stud_mgmt_pg
 	include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');	
 	
-	$StID = $_GET['stid']; // Student
+	$Subj = $_GET['stid']; // Student
 	$LoginID = $_SESSION['LoginID']; // Current User
 	$GroupID = $_GET['gid'];
 
 	$DeleteGroupA = new Group_Assign(array(
-		'Subj' => $StID, 
+		'Subj' => $Subj, 
 		'LoginID' => $LoginID, 
 		'GroupID' => $GroupID));	
 	$DeleteGroupA->delGroupA();
 
-		//Directs back to stud_mgmt_pg with StID
-		echo "<script>window.open('../../../_facultyPages/stud_mgmt_pg.php?stid=$StID', '_self') </script>";	
+	// ++++ Change: Added Check for sending page module 10/8KM ++++
+	// Gets sending page and redirects
+	include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getPage-Fac.php');
 }
 ?>

@@ -1,6 +1,7 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
+$P='facultyDashboard';
 ?>
 	
 	<div class="wrapper">

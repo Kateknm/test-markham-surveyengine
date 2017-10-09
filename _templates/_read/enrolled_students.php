@@ -18,6 +18,8 @@
 					<th>Student Name</th>
 					<th>Email</th>
 					<th>Group</th>
+					<th>Remove<br/>From <br/>Class</th>
+					<th>Delete<br/>Student</th>
 					<?php 		
 						foreach ($rows as $value){
 							$Subj=$value['LoginID'];

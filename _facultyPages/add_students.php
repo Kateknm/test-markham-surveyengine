@@ -2,6 +2,7 @@
 // ++++ Change: Added as a stub page 9/24 KM ++++
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
+$P='add_students';
 ?>
 <div class="wrapper">
 	<main>

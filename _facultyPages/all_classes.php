@@ -3,6 +3,7 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_do.php');
+$P='all_classes';
 ?>
 <h2 class="center">ITEC Classes</h2>
 <!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->

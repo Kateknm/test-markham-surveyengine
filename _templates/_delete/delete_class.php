@@ -13,57 +13,62 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_model.php');
 <div class="wrapper">
 	<main>
 		<?php	
-		//----------------- Get Class Info --------------->	
-		if(isset($_GET['cid'])){$ClassID = $_GET['cid'];}
-		if(!empty($_SESSION['LoginID'] && $ClassID )){
-			//calls class data object and loads table data by ClassID
-			$classdo = new Class_DO();
-			$classpage=$classdo->classPage($ClassID, $_SESSION['LoginID']);
-			foreach ($classpage as $value){
-				$ClassNO = $value['ClassNO'];
-				$ClassName=$value['ClassName'];
-				$SemesterName=$value['SemesterName'];
-				$Year = $value['Year'];
-				$ExpDate = $value['ExpDate'];
-				$SemesterID = $value['SemesterID'];
-			}				
-		?>	<!---------------- Show Class Info -------------->
-		<table>
-			<h1> Deleting this Class ?</h1>
-			<tr><th>Class ID: </th><td><?php echo $ClassID ;?></td></tr>
-			<tr><th>Class Number</th><td><?php echo $ClassNO;?></td></tr>
-			<tr><th>Class Name: </th><td> <?php echo $ClassName;?></td></tr>
-			<tr><th>Class Expires On:</th><td><?php echo $ExpDate ?></td></tr>
-			<tr><th>Semester: </th><td><?php echo $SemesterName .' ' . $Year;?></td></tr>
-			<tr></tr>
-		</table>
+		// ++++ Change: Added Check for IDs module 10/8KM ++++
 
-		<form name="DeleteClass" method="POST">
-			<div>	
-				<br/>
-				<input type="submit" value="Delete Class" name="DeleteClass" id="DeleteClass">
-			</div>
-			<?php 
-				// -----------------Delete Class --------------------
-				if(isset($_POST['DeleteClass'])){
-					$delClass = new Classes(array(
-						'LoginID' => $_SESSION['LoginID'],
-						'ClassID' => $ClassID,
-						'ClassNO' => $ClassNO,
-						'ClassName' => $ClassName,
-						'SemesterID' => $SemesterID,
-						'ExpDate' => $ExpDate));
-					$delClass->deleteClass();
-					if($delClass){
-						echo '<br/>Success! <br/>You have deleted '.$value['ClassID']. ' ' .$value['ClassName'];
-						echo '<br/>Do not resubmit the form.</br>';
-						echo "<script>window.open('../../_facultyPages/classes.php','_self') </script>";
+		// Gets IDs
+		include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
+		
+		//----------------- Get Class Info --------------->	
+		if(!empty($_SESSION['LoginID'])){
+			if(empty($ClassID)){ echo "Uh-Oh No Class ID Found.";}
+			if(!empty($ClassID )){
+				//calls class data object and loads table data by ClassID
+				$classdo = new Class_DO();
+				$classpage=$classdo->classPage($ClassID, $_SESSION['LoginID']);
+				foreach ($classpage as $value){
+					$ClassNO = $value['ClassNO'];
+					$ClassName=$value['ClassName'];
+					$SemesterName=$value['SemesterName'];
+					$Year = $value['Year'];
+					$ExpDate = $value['ExpDate'];
+					$SemesterID = $value['SemesterID'];
+				}				
+			?>	<!---------------- Show Class Info -------------->
+			<table>
+				<h1> Deleting this Class ?</h1>
+				<tr><th>Class ID: </th><td><?php echo $ClassID ;?></td></tr>
+				<tr><th>Class Number</th><td><?php echo $ClassNO;?></td></tr>
+				<tr><th>Class Name: </th><td> <?php echo $ClassName;?></td></tr>
+				<tr><th>Class Expires On:</th><td><?php echo $ExpDate ?></td></tr>
+				<tr><th>Semester: </th><td><?php echo $SemesterName .' ' . $Year;?></td></tr>
+				<tr></tr>
+			</table>
+
+			<form name="DeleteClass" method="POST">
+				<div>	
+					<br/>
+					<input type="submit" value="Delete Class" name="DeleteClass" id="DeleteClass">
+				</div>
+				<?php 
+					// -----------------Delete Class --------------------
+					if(isset($_POST['DeleteClass'])){
+						$delClass = new Classes(array(
+							'LoginID' => $_SESSION['LoginID'],
+							'ClassID' => $ClassID,
+							'ClassNO' => $ClassNO,
+							'ClassName' => $ClassName,
+							'SemesterID' => $SemesterID,
+							'ExpDate' => $ExpDate));
+						$delClass->deleteClass();
+						if($delClass){
+							// ++++ Change: Added Check for sending page module 10/8KM ++++
+							// Gets sending page and redirects
+							include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getPage-Fac.php');
 						}
-				}
-		}//End If !empty LoginID & ClassID
-		else{
-			echo '<div class="error">Uhoh problem getting user login or ClassID</div>';
-		}
+					}
+			}//End If !empty ClassID
+		}//End If !empty LoginID  
+	
 		?> 		
 		</form>
 	</main>

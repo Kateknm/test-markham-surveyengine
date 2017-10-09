@@ -9,6 +9,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_model.php');	
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
+$P='add_class';
 ?>
 	
 <!-- Main Content Section-->

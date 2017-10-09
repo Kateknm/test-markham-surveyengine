@@ -27,8 +27,14 @@ $P='stud_mgmt_pg';
 				<div>
 					<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/student_info.php'); ?>
 				</div>
+				<?php
+					echo '<span class="two"><a href="update_student.php?stid='.$StID.'">';
+					echo 	'<img class ="med_icon" src="../_images/update.png" alt="Update Profile"></a>'; // update class
+					echo '<br/><a href="update_student.php?stid='.$StID.'"'.'>Update Student Profile</a></span>';
+				?>
 				
 				<div class="clear"></div>
+				
 				
 				<!-- ------------- Student Classes Info ----------->
 				<h2>Assigned Classes & Groups</h2>

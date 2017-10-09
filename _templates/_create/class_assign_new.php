@@ -46,8 +46,6 @@
 				'ClassID' => $ClassID));	
 				$newClassA->assignClass();
 				echo '<div class = "receipt">Enrolled in Class: <strong>'.$ClassID.'</strong></div>';
-				//echo '<br/>add_student should open';
-				//echo "<script>window.open('../_templates/_read/add_student_rcpt.php?cid=$ClassID&stid=$newID&p=$P','_self') </script>"; // loads receipt page to show updated information
 			}
 		}
 	

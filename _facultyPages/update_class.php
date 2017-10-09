@@ -10,6 +10,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
+$P = 'update_class';
 ?>
 <!-- Main Content Section-->
 <div class="wrapper">

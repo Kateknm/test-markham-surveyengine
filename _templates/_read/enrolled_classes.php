@@ -46,7 +46,7 @@ if(!empty($rows)){
 				echo '<td><a href="../_templates/_delete/del_class_assignment.php?cid=';
 				echo 	$value['ClassID'].'&stid='.$StID.'&p='.$P;
 				echo '">';
-				echo 	'<img class ="small_icon" src="../_images/delete.png" alt="Delete">';
+				echo 	'<img class ="med_icon" src="../_images/person_delete.png" alt="Delete">';
 				echo 	'</a></td>'; // delete class assignment
 			echo '</tr>';	
 		}
