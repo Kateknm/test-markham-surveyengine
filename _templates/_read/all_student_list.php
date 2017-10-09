@@ -23,6 +23,7 @@
 				</thead>
 				<tbody>			
 					<?php
+					// ++++ Change: Added Delete Student Button 10/8 KM ++++
 						foreach ($rows as $value){
 							echo '<tr>';
 								echo '<td>';

@@ -22,6 +22,7 @@ $P='stud_mgmt_pg';
 			if(!empty ($StID)){?>
 			<h1> Student Management Page </h1>
 			<br/>
+			<!-- ++++ Change: Created modules for reuse 10/1 KM ++++ -->
 			<form name ="assign-class" method = "POST" action="#">
 				<div>
 					<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/student_info.php'); ?>
@@ -42,7 +43,6 @@ $P='stud_mgmt_pg';
 					//calls class data object and loads table data by LoginID
 					$ClassID = 'all';
 					$Subj = $StID;
-					// ++++ Change: Created group_assignments as reusable module KM ++++ 
 					include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/group_assignments.php');
 				?>
 				<div>	
@@ -56,7 +56,6 @@ $P='stud_mgmt_pg';
 					<!-- ------------- Group Assignment Selection ----------->				
 					<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_create/group_assign_new.php');?>
 				</div>
-
 
 	<?php } // End if StID not empty ?>
 

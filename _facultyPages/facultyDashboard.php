@@ -49,7 +49,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 		</div>
 	</div>
 	
-<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/facfooter.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_footers/facfooter.php');?>
 	
 </body>
 </html>

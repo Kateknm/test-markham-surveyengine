@@ -13,8 +13,10 @@ $P='all_students';
 <!-- ++++ Change: Created list module for reuse 10/1 KM ++++ -->
 <?php
 // ++ Work Flag
-// ++ Add Buttons to this table in all_student_list.php
+// ++ Add UPDATE Buttonto this table in all_student_list.php
 // ++
+
+// ++++ Change: Added delete button to all_students_list.php
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/all_student_list.php');?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_footers/facfooter.php');?>

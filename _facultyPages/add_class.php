@@ -1,5 +1,4 @@
 <?php 
-// ++++ Change: Adjusted indentation 9/8 KM ++++
 /* --
 --- -- --- WORK FLAG
 ---This page still needs work. Maybe use a <datalist> populated with classes offered. -- 9/8 KM

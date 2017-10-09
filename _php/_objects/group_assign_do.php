@@ -68,7 +68,7 @@
 			}
 			if($ClassID != 'all'){
 			//Load by LoginID
-			$sql = "SELECT cgroup.GroupName, cgroup.GroupID
+			$sql = "SELECT cgroup.GroupName, cgroup.GroupID, login.LoginID, cgroup.ClassID
 				FROM ((cgroup
 				INNER JOIN group_assign ON cgroup.GroupID=group_assign.GroupID)
 				INNER JOIN login ON group_assign.LoginID = login.LoginID)

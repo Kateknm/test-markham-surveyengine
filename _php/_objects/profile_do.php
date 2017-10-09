@@ -1,4 +1,5 @@
 <?php
+// ++++ Changed References to Student = Profile (include faculty) 10/7 KM ++++
 	class Profile_DO{
 	// -- Create
 		public function addProfile($values){
@@ -53,7 +54,7 @@
 				return $all_rows;
 			}
 		}
-// -- Update Info		
+// -- Update Profile Info		
 	public function updateProfile($values){
 		if(!empty($values)){
 			$LoginID = $values['LoginID'];
@@ -95,6 +96,7 @@
 				$checkrole = "SELECT Role From login WHERE LoginID = '$LoginID'";			
 				$getRole = mysqli_query($con, $checkrole); 
 				//User is faculty or deleting their own profile.
+				// ++++ Change: Allow logged in user to delete. 10/7 KM ++++
 				if((mysqli_num_rows($getRole)) > 0 || ($LoginID == Subj)){
 					while($row = mysqli_fetch_array($getRole)){
 						$myRole = $row['Role'];
