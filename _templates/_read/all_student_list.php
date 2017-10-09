@@ -17,7 +17,8 @@
 						<th>Student ID</th>
 						<th>Student Name</th>
 						<th>Email</th>
-						<th></th>
+						<th>Delete <br/>Student</th>
+						<th>Update <br/>Profile</th>
 						
 					</tr>
 				</thead>
@@ -35,6 +36,10 @@
 									echo '<a href="../../_templates/_delete/delete_profile.php?stid='.$value['LoginID'].'&p='.$P.'">';
 									echo '<img class ="small_icon" src="../_images/delete.png" alt="Delete Student"></a>';// delete student
 								echo '</td>'; 
+								echo '<td>';
+									echo '<a href="update_student.php?stid='.$value['LoginID'].'">';
+									echo 	'<img class ="small_icon" src="../_images/update.png" alt="Update Profile"></a>'; // update class
+								echo '</td>';
 							echo '</tr>';	
 						}?>			   
 			   </tbody>

@@ -16,10 +16,10 @@ $P='stud_mgmt_pg';
 		<!-- Main Content Section-->
 			<?php
 			if(!empty($_GET['stid'])){
-				$StID = $_GET['stid'];
+				$Subj = $_GET['stid'];
 				}
 			else{echo "Uh-oh! - Can't Find the Student ID";}
-			if(!empty ($StID)){?>
+			if(!empty ($Subj)){?>
 			<h1> Student Management Page </h1>
 			<br/>
 			<!-- ++++ Change: Created modules for reuse 10/1 KM ++++ -->
@@ -30,7 +30,7 @@ $P='stud_mgmt_pg';
 				<?php
 					echo '<span class="two"><a href="update_student.php?stid='.$StID.'">';
 					echo 	'<img class ="med_icon" src="../_images/update.png" alt="Update Profile"></a>'; // update class
-					echo '<br/><a href="update_student.php?stid='.$StID.'"'.'>Update Student Profile</a></span>';
+					echo '<br/><a href="update_student.php?stid='.$Subj.'"'.'>Update Student Profile</a></span>';
 				?>
 				
 				<div class="clear"></div>

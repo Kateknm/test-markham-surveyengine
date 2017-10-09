@@ -20,6 +20,7 @@
 					<th>Group</th>
 					<th>Remove<br/>From <br/>Class</th>
 					<th>Delete<br/>Student</th>
+					<th>Update<br/>Profile</th>
 					<?php 		
 						foreach ($rows as $value){
 							$Subj=$value['LoginID'];
@@ -37,8 +38,11 @@
 								echo '<td>';
 									echo '<a href="../../_templates/_delete/delete_profile.php?cid='.$ClassID.'&stid='.$Subj.'&p='.$P.'">';
 									echo '<img class ="small_icon" src="../_images/delete.png" alt="Delete Student"></a>';// delete student
-								echo '</td>'; 				
-								
+								echo '</td>'; 		
+								echo '<td>';
+									echo '<a href="update_student.php?stid='.$Subj.'">';
+									echo 	'<img class ="small_icon" src="../_images/update.png" alt="Update Profile"></a>'; // update class
+								echo '</td>';
 							echo '</tr>';
 						}	
 					?>

@@ -35,7 +35,7 @@ if(!empty($_SESSION['LoginID'])){
 								<td><input type="text" name="LName" id="LName" value= <?php echo "'". $LName ."'";?>></td>
 							</tr>
 							<tr>
-								<th><label> Student ID: </label></th><td><label><?php echo $Subj; ?></label></td>
+								<th><label> Student ID: </label></th><td><label><?php echo '<a href="stud_mgmt_pg.php?stid=' . $Subj . '">'.$Subj.'</a>'; ?></label></td>
 							</tr>	
 							<tr>
 								<th><label for="Email">Email: </label></th>
