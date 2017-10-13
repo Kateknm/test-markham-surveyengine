@@ -42,7 +42,7 @@
 									echo '<img class ="small_icon" src="../_images/delete.png" alt="Delete Student"></a>';// delete student
 								echo '</td>'; 
 								echo '<td>';
-									echo '<a href="update_student.php?stid='.$value['LoginID'].'">';
+									echo '<a href="stud_mgmt_pg.php?stid='.$value['LoginID'].'">';
 									echo 	'<img class ="small_icon" src="../_images/update.png" alt="Update Profile"></a>'; // update profile
 								echo '</td>';
 							echo '</tr>';	
