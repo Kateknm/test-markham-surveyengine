@@ -3,6 +3,7 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_do.php');
+// ++++ Change: Added Page Identifier 10/10 KM ++++
 $P='classes';	
 ?>
 <!-- Main Content Section-->

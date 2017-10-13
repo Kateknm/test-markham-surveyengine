@@ -19,8 +19,8 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_model.php');
 		include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
 		
 		//----------------- Get Class Info --------------->	
-		if(!empty($_SESSION['LoginID'])){
-			if(empty($ClassID)){ echo "Uh-Oh No Class ID Found.";}
+		if($LoginID != 0){
+			if(!isset($ClassID) || empty($ClassID)){ echo "<div>Uh-Oh No Class ID Found.</div>";}
 			if(!empty($ClassID )){
 				//calls class data object and loads table data by ClassID
 				$classdo = new Class_DO();

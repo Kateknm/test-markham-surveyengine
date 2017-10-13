@@ -5,9 +5,12 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_model.php');
 // CA_DO is called from originating page.
 ?>	
 <?php
-if(isset($_GET['cid'])){$ClassID = $_GET['cid'];}
-if(isset($_SESSION['LoginID'])){
-	 if(!empty($ClassID )){
+// ++++ Change: Added Check for IDs module 10/10 KM ++++
+// Gets IDs
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
+if($LoginID != 0){ //logged in
+	if(!isset($ClassID) || empty($ClassID)){echo '<div class="error">No ClassID Found.</div>';}
+	if(!empty($ClassID)){ // class id
 		// --------------- Class Information -------------
 		// ++++ Change: Passed currently selected ClassID & $_SESSION['LoginID'] ++++
 		$classdo = new Class_DO();
@@ -62,6 +65,4 @@ if(isset($_SESSION['LoginID'])){
 		</tr>
 		</table>
  <?php }}// End IF Login && ClassID 
-if(empty($ClassID)){echo "No ClassID Found.";}
-if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>';}?>
-<?php	
+ ?>

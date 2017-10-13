@@ -5,12 +5,12 @@
 
 <?php	
 // Lists groups assigned to a student.
-// ++++ Change: Moved to class_assign_do from stu_do 9/5 KM ++++
-// ++++ Change: Added if statement to hide table if empty 9/24 KM ++++
-if(isset($_GET['cid'])&& $ClassID!='all'){$ClassID = $_GET['cid'];}
-if(isset($_SESSION['LoginID'])){
-	 if(!empty($ClassID )){
-	
+// ++++ Change: Added Check for IDs module 10/8KM ++++
+// Gets IDs
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
+if($LoginID != 0){ //Logged In
+	if(!isset($ClassID) || empty($ClassID)){echo '<div class="error">No ClassID Found.</div>';}
+	if(!empty($ClassID) && ($ClassID != 'all')){ $_GET['cid'];}	
 		$gado = new GA_DO();
 		$rows=$gado->groupsByLogin($Subj, $ClassID);
 		if($ClassID == 'all'){
@@ -44,6 +44,4 @@ if(isset($_SESSION['LoginID'])){
 		
 	  ?>
 	   
-		<?php }}// End IF Login && ClassID 
-if(empty($ClassID)){echo "No ClassID Found.";}
-if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>';}?>
+		<?php }// End IF Login && ClassID 

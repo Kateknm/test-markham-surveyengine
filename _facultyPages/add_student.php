@@ -1,4 +1,5 @@
 <?php 
+// ++++ Change: Created Add Student 10/10 KM ++++
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
@@ -6,7 +7,8 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/stu_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/profile_do.php');	
-require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/profile_model.php');	
+require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/profile_model.php');
+// ++++ Change: Added page identifier 10/10 KM ++++	
 $P='add_student'; 
 ?>
 <div class="wrapper">

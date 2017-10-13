@@ -15,7 +15,7 @@ $P='update_student';
 			// Gets IDs
 			include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
 			if(!empty($_SESSION['LoginID'])){
-				if(!isset($Subj)){echo '<div class="error">Uhoh problem getting Profile ID</div>';}
+				if(!isset($Subj) || empty($Subj)){echo '<div class="error">Uhoh problem getting Student ID</div>';}
 				if(!empty($Subj)){?>
 					<h1> Update Student Profile </h1>
 					<!-- <h2> Welcome <?php //echo $FName. ' ' . $LName ; ?> !</h2> -->

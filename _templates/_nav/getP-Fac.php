@@ -1,5 +1,5 @@
 <?php
-// ++++ Change: Added getPage Module. Defaults to facultyDashboard. 10/8 KM ++++
+// ++++ Change: Added getP Module. Defaults to facultyDashboard. 10/8 KM ++++
 // For Pages with includes rather than page sent through header
 if(!empty($P)){
 	$returnME = $P; // get sending Page

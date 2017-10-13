@@ -11,11 +11,11 @@ if(isset($returnME)){
 			// ++++ Change: If statements to distinguish between faculty and student to reload sending page.php 9/29 KM ++++
 			if(isset($_GET['stid'])){
 				if(!empty($_GET['stid'])){
-					echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?stid=". $Subj . "&cid=" . $ClassID . "', '_self') </script>";
+					echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?stid=". $StID. "&cid=" . $ClassID . "', '_self') </script>";
 				}	
 			}
 			if(isset($_GET['fid'])){
-				if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?fid=". $Subj . "&cid=" . $ClassID . "','_self') </script>";}
+				if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?fid=". $FID . "&cid=" . $ClassID . "','_self') </script>";}
 			}
 			else{echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?&cid=" . $ClassID . "','_self') </script>";}
 		}
@@ -23,11 +23,11 @@ if(isset($returnME)){
 			// ++++ Change: If statements to distinguish between faculty and student to reload sending page.php 9/29 KM ++++
 			if(isset($_GET['stid'])){
 				if(!empty($_GET['stid'])){
-					echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?stid=". $Subj. "', '_self') </script>";
+					echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?stid=". $StID. "', '_self') </script>";
 				}	
 			}
 			if(isset($_GET['fid'])){
-				if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?fid=". $Subj . "','_self') </script>";}
+				if(!empty($_GET['fid'])){echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php?fid=". $FID . "','_self') </script>";}
 			}
 			else{echo "<script>window.open('../../../_facultyPages/" . $returnME . ".php','_self') </script>";}
 		}

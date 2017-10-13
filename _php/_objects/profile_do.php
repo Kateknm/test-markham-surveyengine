@@ -1,15 +1,16 @@
 <?php
-// ++++ Changed References to Student = Profile (include faculty) 10/7 KM ++++
+// ++++ Change: References from Student to Profile (to include faculty profile settings) 10/7 KM ++++
 	class Profile_DO{
 	// -- Create
+		// ++++ Change: Created addProfile 10/10 KM ++++
 		public function addProfile($values){
-			
+			//Anyone should be able to create a profile. Different pages should auto pass different values.	
 			include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 			$number = rand(15, 30);
 			$Email = $values['Email'];
 			if($values['Password'] == 'GetRandom'){
-			$Password = $values['LName'].$number; 
-			$PWord=SHA1($Password);
+				$Password = $values['LName'].$number; 
+				$PWord=SHA1($Password);
 			}			
 			else{$PWord = SHA1($Password);}
 			// --Update Login				

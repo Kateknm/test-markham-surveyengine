@@ -12,12 +12,13 @@ $P = 'del_class_assignment';
 // Gets IDs
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
 
-if(!empty($_SESSION['LoginID'])){ //logged in
+if($LoginID != 0){ //logged in
+	if(!isset($ClassID) || empty($ClassID)){ echo '<div class="error">No Class ID</div>';}
 	if(!empty($ClassID)){ // class id
 		
 		// ++++ Change: Remove Group Assignment while removing student from class 10/8 KM ++++		
 		//Check for Group Assignment & Remove each group_assignment for students only.
-		if(!empty($_GET['stid'])){	
+		if(!empty($StID)){	
 			//include del_group_assignment
 			include($_SERVER['DOCUMENT_ROOT'].'/_templates/_delete/del_group_assignment.php');
 		}
@@ -27,10 +28,13 @@ if(!empty($_SESSION['LoginID'])){ //logged in
 			'LoginID' => $LoginID, 
 			'ClassID' => $ClassID));	
 		$DeleteClassA->delClassA();
-
-		// ++++ Change: Added Check for sending page module 10/8KM ++++
-		// Gets sending page and redirects
-		include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getPage-Fac.php');
+		if($DeleteClassA){
+			$StID = ''; 
+			$Subj = '';
+			// ++++ Change: Added Check for sending page module 10/8KM ++++
+			// Gets sending page and redirects
+			include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getPage-Fac.php');
+		}
 	}
 }
 ?>

@@ -1,11 +1,13 @@
 <?php
+
 if(isset($_SESSION['LoginID'])){
 	if(!empty($_SESSION['LoginID'])){ 
 		$LoginID = $_SESSION['LoginID']; // Current User
 	}
 }
 else{
-	
+	$LoginID = 0;
+	echo '<a href="/login.php"'.'>Please Log In.</a>'; // Please Log In w/ link
 }
 
 if(isset($_GET['stid'])){
@@ -27,6 +29,12 @@ if(isset($_GET['fid'])){
 if(isset($_GET['cid'])){
 	if(!empty($_GET['cid'])){
 		$ClassID = $_GET['cid']; // Current Class ID
+	}
+}
+
+if(isset($_GET['gid'])){
+	if(!empty($_GET['gid'])){
+		$GroupID = $_GET['gid'];
 	}
 }
 

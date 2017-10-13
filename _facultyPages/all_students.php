@@ -3,7 +3,8 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/stu_do.php');
-$P='all_students';
+// ++++ Change: Added Page Identifier 10/10 KM ++++
+$P = 'all_students';
 ?>
 
 <h2 class="center">All Students</h2>
@@ -12,11 +13,8 @@ $P='all_students';
 <!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->
 <!-- ++++ Change: Created list module for reuse 10/1 KM ++++ -->
 <?php
-// ++ Work Flag
-// ++ Add UPDATE Buttonto this table in all_student_list.php
-// ++
-
-// ++++ Change: Added delete button to all_students_list.php
+// ++++ Change: Added Delete Button to all_students_list.php 10/8 KM ++++
+// ++++ Change: Added UPDATE Button to this table in all_student_list.php 10/10 KM ++++
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/all_student_list.php');?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_footers/facfooter.php');?>

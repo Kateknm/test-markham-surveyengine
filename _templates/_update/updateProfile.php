@@ -10,7 +10,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
 ?>
 <?php
 if(!empty($_SESSION['LoginID'])){
-	if(!isset($Subj)){echo '<div class="error">Uhoh problem getting Profile ID</div>';}
+	if(!isset($Subj) || empty($Subj)){echo '<div class="error">Uhoh problem getting Profile ID</div>';}
 	if(!empty($Subj)){
 		//calls class data object and loads table data by ClassID
 		$profile = new Profile_DO();	
