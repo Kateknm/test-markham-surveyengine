@@ -4,13 +4,13 @@
 ?>	
 
 <?php	
-// Lists student's assigned to a class.
-// ++++ Change: Moved to class_assign_do from stu_do 9/5 KM ++++
-// ++++ Change: Added if statement to hide table if empty 9/24 KM ++++
-if(isset($_GET['cid'])&& $ClassID!='all'){$ClassID = $_GET['cid'];}
-if(isset($_SESSION['LoginID'])){
-	 if(!empty($ClassID )){
-	
+// Lists groups assigned to a student.
+// ++++ Change: Added Check for IDs module 10/8KM ++++
+// Gets IDs
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
+if($LoginID != 0){ //Logged In
+	if(!isset($ClassID) || empty($ClassID)){echo '<div class="error">No ClassID Found.</div>';}
+	if(!empty($ClassID) && ($ClassID != 'all')){ $_GET['cid'];}	
 		$gado = new GA_DO();
 		$rows=$gado->groupsByLogin($Subj, $ClassID);
 		if($ClassID == 'all'){
@@ -24,8 +24,8 @@ if(isset($_SESSION['LoginID'])){
 						echo '<td>'.'<a href="class_group.php?gid='.$value['GroupID'].'&gname='.$value['GroupName'].'">';
 						echo 	$value['GroupID'].'</a></td>'; // links back to group page
 						echo '<td>'.$value['GroupName'].'</td>';
-						echo '<td><a href="../_templates/_delete/del_group_assignment.php?gid='.$value['GroupID'].'&stid='.$Subj;
-						echo	'"><img class ="small_icon" src="../_images/delete.png" alt="Delete"></a></td>'; // delete group assignment
+						echo '<td><a href="../_templates/_delete/del_group_assignment.php?gid='.$value['GroupID'].'&stid='.$Subj.'&p='.$P;
+						echo	'"><img class ="med_icon" src="../_images/person_delete.png" alt="Delete"></a></td>'; // delete group assignment
 					echo '</tr>';
 					}
 				echo '</table>';	
@@ -44,6 +44,4 @@ if(isset($_SESSION['LoginID'])){
 		
 	  ?>
 	   
-		<?php }}// End IF Login && ClassID 
-if(empty($ClassID)){echo "No ClassID Found.";}
-if(empty($_SESSION['LoginID'])){ echo '<a href="/login.php"'.'>Please Login</a>';}?>
+		<?php }// End IF Login && ClassID 

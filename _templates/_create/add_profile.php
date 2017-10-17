@@ -1,16 +1,20 @@
 <?php 
-if(isset($_SESSION['LoginID'])){$LoginID = $_SESSION['LoginID'];}
-else{$LoginID = 0;}
-if($LoginID != 0){ // Faculty (Role Check in DO)
+//Check logged in?
+// ++++ Change: Added Check for IDs module 10/10 KM ++++
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getIDs.php');
+
+//If logged in
+if($LoginID != 0){ // Must be logged in. Role is checked in DO
 ?>
 	<!-- ++++ Change: Created Reusable Module to add profiles 9/30 KM ++++ -->
 	<form name ="create-profile" method = "POST">	
 	<?php 	
-		if($P=='add_student'){
-		$Role = 'Student';
-		$Password = 'GetRandom';
-		$Subj = 0;
-		}?>
+		if($P=='add_student'){ // _facultyPages/add_student Settings
+			$Role = 'Student';
+			$Password = 'GetRandom';
+			$Subj = 0; // Pass empty to model
+		}	
+	?>
 		<table>
 			<tr>
 				<th><label>Name: </label></th>
@@ -73,14 +77,12 @@ if($LoginID != 0){ // Faculty (Role Check in DO)
 		foreach($rows as $value){
 			if($i>=1){break;}//return only first value
 			$newID=$value['LoginID'];
-			echo '<div class="receipt"><br/>New ID: <strong>'. $newID .'</strong></div>';
+			echo '<div class="receipt"><br/>New ID: <strong><a href="stud_mgmt_pg.php?stid=' . $newID . '">';
+			echo 	$newID . '</a></strong></div>';
 			$i++;
 		}
 	}	
 	
 }//End If LoginID 
 
-else{
-	echo "Building New Profile coming soon...";
-}
 	?>

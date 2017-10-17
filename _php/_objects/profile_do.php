@@ -1,14 +1,16 @@
 <?php
+// ++++ Change: References from Student to Profile (to include faculty profile settings) 10/7 KM ++++
 	class Profile_DO{
 	// -- Create
+		// ++++ Change: Created addProfile 10/10 KM ++++
 		public function addProfile($values){
-			
+			//Anyone should be able to create a profile. Different pages should auto pass different values.	
 			include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 			$number = rand(15, 30);
 			$Email = $values['Email'];
 			if($values['Password'] == 'GetRandom'){
-			$Password = $values['LName'].$number; 
-			$PWord=SHA1($Password);
+				$Password = $values['LName'].$number; 
+				$PWord=SHA1($Password);
 			}			
 			else{$PWord = SHA1($Password);}
 			// --Update Login				
@@ -37,7 +39,7 @@
 
 	// -- Read 	
 
-		// -- update_student page
+		// -- list profile data
 		public function listProfile($Subj){
 			if(!empty($Subj)){
 				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
@@ -53,7 +55,7 @@
 				return $all_rows;
 			}
 		}
-// -- Update Student Info		
+// -- Update Profile Info		
 	public function updateProfile($values){
 		if(!empty($values)){
 			$LoginID = $values['LoginID'];
@@ -85,17 +87,18 @@
 		}
 	}	
 			
-// -- Delete Student
-	public function deleteStudent($values){
+// -- Delete
+	public function deleteProfile($values){
 			if(!empty($values)){
 				$LoginID = $values['LoginID'];
-				$Subj = $values['Subj'];
-				echo $LoginID . ' '. $Subj;
+				$Subj = $values['Subj'];				
 				include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 				// -- Check that user is faculty
 				$checkrole = "SELECT Role From login WHERE LoginID = '$LoginID'";			
-				$getRole = mysqli_query($con, $checkrole);
-				if (mysqli_num_rows($getRole) > 0){
+				$getRole = mysqli_query($con, $checkrole); 
+				//User is faculty or deleting their own profile.
+				// ++++ Change: Allow logged in user to delete. 10/7 KM ++++
+				if((mysqli_num_rows($getRole)) > 0 || ($LoginID == Subj)){
 					while($row = mysqli_fetch_array($getRole)){
 						$myRole = $row['Role'];
 						if ($myRole == 'Faculty'){

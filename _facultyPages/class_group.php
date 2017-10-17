@@ -9,7 +9,9 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
-require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/group_assign_do.php');	
+require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/group_assign_do.php');
+// ++++ Change: Added Page Identifier 10/10 KM ++++	
+$P='class_group';
 ?>	
 <!-- Main Content Section-->
 <div class="wrapper">

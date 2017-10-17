@@ -9,6 +9,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/group_assign_model.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/drop_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_assign_do.php');
 require($_SERVER['DOCUMENT_ROOT'].'/_php/_models/class_assign_model.php');
+// ++++ Change: Added Page Identifier 10/10 KM ++++
 $P='stud_mgmt_pg';
 ?>
 <div class="wrapper">
@@ -16,18 +17,25 @@ $P='stud_mgmt_pg';
 		<!-- Main Content Section-->
 			<?php
 			if(!empty($_GET['stid'])){
-				$StID = $_GET['stid'];
+				$Subj = $_GET['stid'];
 				}
 			else{echo "Uh-oh! - Can't Find the Student ID";}
-			if(!empty ($StID)){?>
+			if(!empty ($Subj)){?>
 			<h1> Student Management Page </h1>
 			<br/>
+			<!-- ++++ Change: Created modules for reuse 10/1 KM ++++ -->
 			<form name ="assign-class" method = "POST" action="#">
 				<div>
 					<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/student_info.php'); ?>
 				</div>
+				<?php
+					echo '<span class="two"><a href="update_student.php?stid='.$StID.'">';
+					echo 	'<img class ="med_icon" src="../_images/update.png" alt="Update Profile"></a>'; // update class
+					echo '<br/><a href="update_student.php?stid='.$Subj.'"'.'>Update Student Profile</a></span>';
+				?>
 				
 				<div class="clear"></div>
+				
 				
 				<!-- ------------- Student Classes Info ----------->
 				<h2>Assigned Classes & Groups</h2>
@@ -42,7 +50,6 @@ $P='stud_mgmt_pg';
 					//calls class data object and loads table data by LoginID
 					$ClassID = 'all';
 					$Subj = $StID;
-					// ++++ Change: Created group_assignments as reusable module KM ++++ 
 					include($_SERVER['DOCUMENT_ROOT'].'/_templates/_read/group_assignments.php');
 				?>
 				<div>	
@@ -56,7 +63,6 @@ $P='stud_mgmt_pg';
 					<!-- ------------- Group Assignment Selection ----------->				
 					<?php include($_SERVER['DOCUMENT_ROOT'].'/_templates/_create/group_assign_new.php');?>
 				</div>
-
 
 	<?php } // End if StID not empty ?>
 

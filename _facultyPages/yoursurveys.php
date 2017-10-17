@@ -1,6 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
+// ++++ Change: Added Page Identifier 10/10 KM ++++
+$P='yoursurveys';
 ?>
 
 <h2 class="center">Your Created Surveys</h2>

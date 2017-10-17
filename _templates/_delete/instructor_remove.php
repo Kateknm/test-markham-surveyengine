@@ -23,7 +23,9 @@
 			'ClassID' => $ClassID));
 		$delInst->delClassA();
 		if($delInst){
-			echo "<script>window.open('update_class.php?cid=$ClassID','_self') </script>"; // reloads page to show updated information
+			// ++++ Change: Added Check for sending page module 10/8KM ++++
+			// Gets sending page and redirects
+			include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/getP-Fac.php');
 		}	
 	}
 	else if(isset($_POST['DelInst']) && $_POST['FID']=='none'){

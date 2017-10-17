@@ -1,6 +1,8 @@
 <!-- ------------- Class Assignment Selection ----------->
 <div>
 	<?php 
+	// ++++ Change updated to check for sending page 10/10 KM ++++
+	if(!isset($P) || empty($P)){echo '<div class="error">Where did you come from? Sending page not assigned.</div>';}
 	if(!empty($P)){
 		//Selection Box - Select from classes
 		if($P=='stud_mgmt_pg'){
@@ -45,12 +47,10 @@
 				'LoginID' => $_SESSION['LoginID'], // Current User
 				'ClassID' => $ClassID));	
 				$newClassA->assignClass();
-				echo '<div class = "receipt">Enrolled in Class: <strong>'.$ClassID.'</strong></div>';
-				//echo '<br/>add_student should open';
-				//echo "<script>window.open('../_templates/_read/add_student_rcpt.php?cid=$ClassID&stid=$newID&p=$P','_self') </script>"; // loads receipt page to show updated information
+				echo '<div class = "receipt">Enrolled in Class: <strong><td><a href="class_page.php?cid='.$ClassID.'">'.$ClassID.'</a></strong></div>';
 			}
-		}
-	
+		}	
 	}//end if $P
+	
 		?>
 				

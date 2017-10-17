@@ -36,6 +36,7 @@ class CA_DO{
 
 // -- Read
 	// ++++ Change: Moved to class_assign_do from stu_do 9/5 KM ++++
+	// ++++ Change: Fixed issue - Students were not showing if no group assigned 10/10 KM ++++
 	//Lists All Students assigned to a class
 		public function listClassStuds($ClassID){			
 			if(!empty($ClassID)){
