@@ -58,9 +58,11 @@ if(!empty($_SESSION['LoginID'])){
 							<div class="col-sm-offset-2 col-sm-9">
 								<input type="submit" value="Update Profile" name="UpdateProfile" id="UpdateProfile" class="btn btn-primary btn-lg submit">
 							</div>
+						</div>
 						<?php 
-							if(($Subj != $LoginID) && ($_SESSION['Role'] != 'Faculty')){
+							if(($_SESSION['Role'] == 'Faculty')){
 						?> 
+						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-9">
 								<input type="submit" value="Delete Profile" name="DeleteProfile" id="DeleteProfile"class="btn btn-primary btn-lg submit">
 							</div>
