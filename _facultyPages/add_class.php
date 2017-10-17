@@ -1,7 +1,8 @@
 <?php 
 /* --
 --- -- --- WORK FLAG
----This page still needs work. Maybe use a <datalist> populated with classes offered. -- 9/8 KM
+--- This page still needs work. Maybe use a <datalist> populated with classes offered. -- 9/8 KM
+--- Needs Msg that tells user that class is already listed. 
 --- -- */
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/facultyHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/facultyNav.php');
