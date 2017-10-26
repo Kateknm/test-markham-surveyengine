@@ -5,7 +5,7 @@ $title = 'Your Classes';
 include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 include($_SERVER['DOCUMENT_ROOT'].'_templates/_headers/studentHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'_templates/_nav/studentNav.php');
-include($_SERVER['DOCUMENT_ROOT'].'_php/_objects/class_do.php');	
+require($_SERVER['DOCUMENT_ROOT'].'_php/_objects/class_do.php');	
 ?>
 
 
