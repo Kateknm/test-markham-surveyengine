@@ -5,12 +5,13 @@ include($_SERVER['DOCUMENT_ROOT'].'_templates/_headers/studentHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'_templates/_nav/studentNav.php');
 include($_SERVER['DOCUMENT_ROOT'].'_php/_objects/class_do.php');	
 ?>
-	</div>
-	<!-- Main Content Section-->
-	<div class="wrapper">
+
 
 <!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->
 <div id="main">
+	</div>
+	<!-- Main Content Section-->
+	<div class="wrapper">
 	<h2 class="center">Your Classes</h2>
 	  
 	<?php
