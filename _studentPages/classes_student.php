@@ -9,8 +9,7 @@ include($_SERVER['DOCUMENT_ROOT'].'_php/_objects/class_do.php');
 
 
 <!-- Builds table for classes. If classes have Expired the are not pulled. KM 9/2/17 -->
-<div id="main">
-	</div>
+<main>
 	<!-- Main Content Section-->
 	<div class="wrapper">
 	<h2 class="center">Your Classes</h2>
@@ -45,7 +44,7 @@ include($_SERVER['DOCUMENT_ROOT'].'_php/_objects/class_do.php');
 
 	</table>
 	</div>
-</div>
+</main>
 	
 <?php include("../_templates/footer.php");?>
 </body>
