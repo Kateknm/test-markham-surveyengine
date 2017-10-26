@@ -13,6 +13,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/class_do.php');
 	<h2 class="center">Your Classes</h2>
 	  
 	<?php
+	echo $_SESSION['LoginID'];
 	if(isset($_SESSION['LoginID'])){
 	$classdo = new Class_DO();
 	}
