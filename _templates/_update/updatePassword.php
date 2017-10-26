@@ -1,8 +1,9 @@
 <div class="container-fluid" style="padding: 20px 0px 15px 0px;">
 	<div class="row">
-		<div class="col-md-6 col-centered">
+		<div class="col-md-7 col-centered">
 			<form action="#" method="post" class="form-horizontal" name="Password">
-				</fieldset>
+			<legend> Update Password </legend>
+				<fieldset>
 					<!-- Current password -->
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="OldPassword">Current password:</label>

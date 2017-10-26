@@ -21,9 +21,7 @@ if(!empty($_SESSION['LoginID'])){
 				$LName = $value['LName'];
 				$Email = $value['Email'];		
 				?>
-				<div class="container-fluid" style="padding: 20px 0px 15px 0px;">
-				<div class="row">
-				<div class="col-md-6 col-centered">
+				<div class="col-md-7 col-centered">
 				<form action="#" method = "POST" class="form-horizontal" name ="update-profile" >
 					<fieldset><legend>Update Settings for: 
 					<?php 
@@ -96,5 +94,5 @@ if(!empty($_SESSION['LoginID'])){
 		}//End If !empty  Subj
 	}//End If !empty LoginID 
 	?>
-	</div>
+	
 </div>

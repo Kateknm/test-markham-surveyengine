@@ -1,9 +1,9 @@
 <?php 
-include('../_templates/studentHeader.php');
-include('../_templates/studentNav.php');
-require("../_php/_objects/class_do.php");	
-	//$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-	//require("$root/_php/_objects/class_do.php");  
+// ++++ Change: Added Title 10/25 KM ++++
+$title = 'Your Classes';
+include($_SERVER['DOCUMENT_ROOT'].'_templates/_headers/studentHeader.php');
+include($_SERVER['DOCUMENT_ROOT'].'_templates/_nav/studentNav.php');
+include($_SERVER['DOCUMENT_ROOT'].'_php/_objects/class_do.php');	
 ?>
 	</div>
 	<!-- Main Content Section-->

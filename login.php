@@ -1,6 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
-include($_SERVER['DOCUMENT_ROOT'].'/_templates/mainHeader.php');
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/mainHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/login_do.php');
 ?>
 <main>

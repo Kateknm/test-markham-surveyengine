@@ -1,14 +1,15 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'].'/_templates/studentHeader.php');
-include($_SERVER['DOCUMENT_ROOT'].'/_templates/studentNav.php');
+// ++++ Change: Added Title 10/25 KM ++++
+$title = 'Your Surveys';
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_headers/studentHeader.php');
+include($_SERVER['DOCUMENT_ROOT'].'/_templates/_nav/studentNav.php');
 ?>
-
-<h2 class="center">Your Surveys</h2>
-<div class="container-fluid" style="padding: 20px 0px 15px 0px;">
-	<div class="row">
-		<div class="col-md-7 col-centered">
-			<table class="table table-striped">
+<main>
+	<div class="wrapper">
+	<div class="col-md-12 col-centered">
+				<table class="table table-striped">
 				<thead>
+				<legend><h1> <?php if(isset($title)){echo $title;} ?></h1></legend>
 					<tr>
 						<!-- Row 1 -->
 						<th>Survey Title</th>
@@ -45,11 +46,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/_templates/studentNav.php');
 			</table>
 		</div>
 	</div>
-</div>
-
-	<footer>
-
-	</footer>
-
+</main>
 </body>
 </html>

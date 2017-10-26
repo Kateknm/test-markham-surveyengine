@@ -2,7 +2,7 @@
 
 //Change: Updated for consistant paths.
 include($_SERVER['DOCUMENT_ROOT'].'/_php/session.php');
-include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
+include($_SERVER['DOCUMENT_ROOT'].'_php/config.php');
 
 //redirect to student dashboard
 if(isset($_SESSION['Role'])){
@@ -26,10 +26,12 @@ else{ echo "Role not defined.";}
 <html lang="en">
 <head><!-- Builds basis of site. Sets style1 as the CSS for this page. -->
 	<meta charset="utf-8">
-	<title>Knightly Knowledge - <?php echo $title; ?></title>
-	<?php echo '<link rel="stylesheet" href="'.$server.'/_css/bootstrap.min.css" />';?>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Knightly Knowledge <?php if(isset($title)){echo " - ".$title;} ?></title>
+	<?php echo '<link rel="stylesheet" href="../_css/bootstrap.min.css" />';?>
 	<?php echo '<link rel="stylesheet" href="'.$server.'/_css/style1.css" />';?>
-	<?php echo '<script src="'.$server.'/_js/dashboard.js" type ="text/javascript"></script>';?>
+	<?php echo '<script src="'.$server.'/_js/dashboard.js" type="text/javascript"></script>';?>
+	<?php echo '<script src="'.$server.'/_js/validateFeedbackForm.js" type="text/javascript"></script>';?>
 </head>
 <body>
 	<header>
@@ -39,7 +41,7 @@ else{ echo "Role not defined.";}
 	</header>
 	
 	<div id="purpleBar">
-		<span class="lead">Knightly Knowledge - <?php echo $title; ?></a>
+		<span class="lead">Knightly Knowledge <?php if(isset($title)){echo " - ".$title;} ?></a>
 	</div>
 
 <?php ?>
