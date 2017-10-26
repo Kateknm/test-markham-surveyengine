@@ -1,5 +1,6 @@
 <?php 
 // ++++ Change: Added Title 10/25 KM ++++
+
 $title = 'Your Classes';
 include($_SERVER['DOCUMENT_ROOT'].'_templates/_headers/studentHeader.php');
 include($_SERVER['DOCUMENT_ROOT'].'_templates/_nav/studentNav.php');
