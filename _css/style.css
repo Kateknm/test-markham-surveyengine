@@ -1,0 +1,47 @@
+/*
+	Knightly Knowledge
+	Spring 2017
+
+	COLOR CODES:
+	Purple:			#633393
+	Dark Purple:	#42337E
+	Grey:			#B0B6BB
+	Light Grey:		#C9CED1
+	Black: 			#000000
+	White:			#FFFFFF
+*/
+
+/* BODY */
+body { text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:1.3em; background-color:#FFFFFF; margin: 0;}
+.wrapper {width:75%; margin:0 auto;max-width:960px; background-color:#FFFFFF; padding:0 4%}
+
+/* HEADER */
+header { background-color: #633393; width: 100%; }
+
+/* LOGIN FORM */
+
+fieldset { background-color: #C9CED1;}
+
+legend { border: solid 1px #633393; background-color: #633393; color: #FFFFFF;  padding: 12px; }
+
+.submit{background:#42337E; color: #FFFFFF; border-color:#42337E;}
+.submit:hover {background-color: #633393; border-color:#633393;}
+
+.submitMain{background:#633393; color: #FFFFFF; border-color:#633393;}
+.submitMain:hover {background-color: #42337E; border-color:#42337E;}
+
+/* NAVIGATION */
+
+
+/* MAIN */
+
+
+/* FOOTER */
+
+/* MISC */
+.clear {clear: both; }
+
+@media only screen and (max-width:770px) {
+	#loginLogo{display:none;}
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "ITEC-4750-Team2-Site-Reordered",
+  
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+	{
+	  "require": {
+		"sendgrid/sendgrid": "~5.0.9"
+	  }
+	}
+}
