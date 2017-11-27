@@ -17,7 +17,7 @@ function emailToken($emailLink, $email){
 	$to = new SendGrid\Email(null, $email);
 
 	// message
-	$message = '
+	$content = new SendGrid\Content("test/html","
 	<html>
 	<head>
 	  <title>MGA Survey Password Reset Request</title>
@@ -26,14 +26,14 @@ function emailToken($emailLink, $email){
 	  <p>We received your request to reset your password.<br/>
 		 To reset your password, click on the button below (or copy/paste the URL into your browser). <br/> 
 	  </p>
-	 <p>'.
+	 <p>".
 	 $emailLinkStr
-	 .'</p>
+	 ."</p>
 	</body>
 	</html>
-	';
+	");
 
-	$content = new SendGrid\Content("text/html", $message);
+	//$content = new SendGrid\Content("text/html", $message);
 
 	$mail = new SendGrid\Mail($from, $subject, $to, $content);
 

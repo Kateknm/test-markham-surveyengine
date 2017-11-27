@@ -6,10 +6,10 @@
 require 'vendor/autoload.php';
 // If you are not using Composer
 // require("path/to/sendgrid-php/sendgrid-php.php");
-$from = new SendGrid\Email("Example User", "test@example.com");
+$from = new SendGrid\Email("MGA Survey Support", "app77969467@heroku.com");
 $subject = "Sending with SendGrid is Fun";
-$to = new SendGrid\Email("Example User", "katie.hodnett@mga.edu");
-$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+$to = new SendGrid\Email(null, "katie.hodnett@mga.edu");
+$content = new SendGrid\Content("text/html", "and easy to do anywhere, even with PHP");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 $apiKey = getenv('MGA_SENDING');
 $sg = new \SendGrid($apiKey);
