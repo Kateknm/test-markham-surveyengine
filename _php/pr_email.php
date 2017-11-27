@@ -1,6 +1,7 @@
 <?php
-
-//Load composer's autoloader
+// using SendGrid's PHP Library
+// https://github.com/sendgrid/sendgrid-php
+// If you are using Composer (recommended)
 require 'vendor/autoload.php';
 
 // ++++ Change: Renamed from email to pr_email distinguish from other emails that might be added later ++++
@@ -9,7 +10,7 @@ function emailToken($emailLink, $email){
 	$emailLinkStr = '<a href"' . $emailLink . '">'. $emailLink . '</a>';
 
 	<?php
-	$from = new SendGrid\Email(null, "surveyadmin@mga.edu");
+	$from = new SendGrid\Email(null, "app77969467@heroku.com");
 	// subject
 	$subject = 'MGA Password Reset Request';
 	// receipient email from forgotpassword page
