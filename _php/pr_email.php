@@ -33,7 +33,7 @@ function emailToken($emailLink, $email){
 	</html>
 	';
 
-	$content = new SendGrid\Content("text/plain", $message);
+	$content = new SendGrid\Content("text/html", $message);
 
 	$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
