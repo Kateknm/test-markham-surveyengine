@@ -36,7 +36,7 @@ function emailToken($emailLink, $email){
 
 	$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-	$apiKey = getenv('SENDGRID_API_KEY');
+	$apiKey = getenv('MGA_SENDING');
 	$sg = new \SendGrid($apiKey);
 
 	$response = $sg->client->mail()->send()->post($mail);
