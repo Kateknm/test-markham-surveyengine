@@ -3,13 +3,12 @@
 class Login_DO{
 	public function getUser($email){ // Check User (email) Exists
 		include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
-		echo "<br/>user_do <br/>";
+		
 		if(!empty($email)){
 			$sql = "SELECT LoginID FROM login where Email = '$email'"; 
 			$getByEmail = mysqli_query($con, $sql); // find user by email
 			if(mysqli_num_rows($getByEmail) > 0){
 				$user = mysqli_fetch_array($getByEmail);
-				print_r($user);
 				return $user;
 			}
 			else{

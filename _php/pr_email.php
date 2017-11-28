@@ -9,7 +9,6 @@ function emailToken($emailLink, $email){
 	$emailLink = "http:" . $emailLink;	
 	$emailLinkStr = '<a href"' . $emailLink . '">'. $emailLink . '</a>';
 
-	<?php
 	$from = new SendGrid\Email("Mga Survey support", "app77969467@heroku.com");
 	// subject
 	$subject = 'MGA Password Reset Request';

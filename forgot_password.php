@@ -10,7 +10,7 @@
 <div class = 'clear'></div>	
 <?php 	
 	include($_SERVER['DOCUMENT_ROOT'].'/_templates/mainNav.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/_templates/footer.php'); 
+	include($_SERVER['DOCUMENT_ROOT'].'/_templates/_footers/footer.php'); 
 ?>
 </body>
 </html>

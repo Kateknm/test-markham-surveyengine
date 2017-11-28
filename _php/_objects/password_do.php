@@ -5,7 +5,7 @@ class Password_DO{
 	public function requestPass($email){ 	
 		include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 		include($_SERVER['DOCUMENT_ROOT'].'/_php/pr_email.php');
-		echo "in requestPass";
+		
 		//check that user exists		
 		$getByEmailStr = "SELECT * FROM login where Email = '$email'";
 		$getByEmail = mysqli_query($con, $getByEmailStr);
@@ -22,7 +22,7 @@ class Password_DO{
 				$resetPath = "/reset_password.php/?token=$str&email=$email";	//path to reset current user password
 				//full link to email user
 				$emailLink = $server . $resetPath;	
-				echo $emailLink;
+				
 				$emailLink = htmlspecialchars( $emailLink, ENT_QUOTES, 'UTF-8' );
 			//send email with token in url link
 			//calls pr_email.php 
