@@ -35,7 +35,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 				//echo $email;
 				$userdo = new Login_DO();
 				$user=$userdo->getUser($email); // Check for user
-				$Subj = $user['LoginID'];
+				$t=0;
+				for each(user as $val){
+					if(t=0){
+					$Subj = $val['LoginID'];
+					t++;
+					}
+				}
+				
 				echo "<br/>".$Subj."<br/>";
 				if(!empty($Subj)){ // If there is a LoginID for user
 					$getPass=new Password_DO();
