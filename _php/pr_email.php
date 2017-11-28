@@ -16,7 +16,7 @@ function emailToken($emailLink, $email){
 	$to = new SendGrid\Email(null, $email);
 
 	// message
-	$content = new SendGrid\Content("test/html","
+	$content = new SendGrid\Content("text/html","
 	<!DOCTYPE html>
 	<html>
 	<head>
