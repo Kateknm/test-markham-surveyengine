@@ -36,7 +36,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 				$userdo = new Login_DO();
 				$user=$userdo->getUser($email); // Check for user
 				$t=0;
-				for each(user as $val){
+				foreach($user as $val){
 					if(t=0){
 					$Subj = $val['LoginID'];
 					t++;
