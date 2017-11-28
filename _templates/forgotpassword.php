@@ -32,11 +32,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 			}
 			else if(isset($_POST['reqPass']) && $_POST['Email']){
 				$email=$_POST['Email'];
-				echo $email;
+				//echo $email;
 				$userdo = new Login_DO();
 				$user=$userdo->getUser($email); // Check for user
 				$Subj = $user['LoginID'];
-
+				echo "<br/>".$Subj."<br/>";
 				if(!empty($Subj)){ // If there is a LoginID for user
 					$getPass=new Password_DO();
 					$getPass->requestPass($email);
