@@ -32,7 +32,7 @@ function emailToken($emailLink, $email){
 	</html>"
 	);
 
-$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$mail = new SendGrid\Mail($to, $subject, $from, $content);
 $apiKey = getenv('MGA_SENDING');
 $sg = new \SendGrid($apiKey);
 $response = $sg->client->mail()->send()->post($mail);
