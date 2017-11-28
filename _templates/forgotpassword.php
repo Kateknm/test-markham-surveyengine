@@ -35,16 +35,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 				//echo $email;
 				$userdo = new Login_DO();
 				$user=$userdo->getUser($email); // Check for user
-				$t=0;
-				foreach($user as $val){
-					if(t=0){
-					$Subj = $val['LoginID'];
-					t++;
-					}
-				}
-				
+				$Subj = $user['LoginID'];
 				echo "<br/>".$Subj."<br/>";
 				if(!empty($Subj)){ // If there is a LoginID for user
+				echo "something";
 					$getPass=new Password_DO();
 					$getPass->requestPass($email);
 					if($getPass){
