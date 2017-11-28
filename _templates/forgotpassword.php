@@ -38,6 +38,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 				$Subj = $user['LoginID'];
 				//Reset Password Email
 				if(!empty($Subj)){ // If there is a LoginID for user
+					echo $email;
 					$getPass=new Password_DO();
 					$getPass->requestPass($email);
 					if($getPass){
