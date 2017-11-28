@@ -10,7 +10,7 @@ function emailToken($emailLink, $email){
 	$emailLinkStr = '<a href"' . $emailLink . '">'. $emailLink . '</a>';
 
 	<?php
-	$from = new SendGrid\Email(null, "app77969467@heroku.com");
+	$from = new SendGrid\Email("Mga Survey support", "app77969467@heroku.com");
 	// subject
 	$subject = 'MGA Password Reset Request';
 	// receipient email from forgotpassword page
@@ -30,19 +30,15 @@ function emailToken($emailLink, $email){
 	 $emailLinkStr
 	 ."</p>
 	</body>
-	</html>
-	");
+	</html>"
+	);
 
-	//$content = new SendGrid\Content("text/html", $message);
-
-	$mail = new SendGrid\Mail($from, $subject, $to, $content);
-
-	$apiKey = getenv('MGA_SENDING');
-	$sg = new \SendGrid($apiKey);
-
-	$response = $sg->client->mail()->send()->post($mail);
-	echo $response->statusCode();
-	echo $response->headers();
-	echo $response->body();
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = getenv('MGA_SENDING');
+$sg = new \SendGrid($apiKey);
+$response = $sg->client->mail()->send()->post($mail);
+echo $response->statusCode();
+print_r($response->headers());
+echo $response->body();
 }
 ?>
