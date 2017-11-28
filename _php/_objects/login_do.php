@@ -9,8 +9,8 @@ class Login_DO{
 			$getByEmail = mysqli_query($con, $sql); // find user by email
 			if(mysqli_num_rows($getByEmail) > 0){
 				$user = mysqli_fetch_array($getByEmail);
-				echo $user;
 				print_r($user);
+				return $user;
 			}
 			else{
 				echo '<div class="error">Check Username & Password </div>';
