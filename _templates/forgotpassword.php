@@ -3,7 +3,7 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/login_do.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 ?>
-		<form method='post' name ='reqPassForm' class="form-horizontal">
+		<form action='#'  method='post' name ='reqPassForm' class="form-horizontal">
 			<fieldset>
 			<div class="col-md-7 col-centered">
 				<legend>Request New Password</legend>
@@ -32,6 +32,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 			}
 			else if(isset($_POST['reqPass']) && $_POST['Email']){
 				$email=$_POST['Email'];
+				echo $email;
 				$userdo = new Login_DO();
 				$user=$userdo->getUser($email); // Check for user
 				$Subj = $user['LoginID'];
