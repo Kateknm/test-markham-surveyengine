@@ -5,7 +5,7 @@ class Password_DO{
 	public function requestPass($email){ 	
 		include($_SERVER['DOCUMENT_ROOT'].'/_php/config.php');
 		include($_SERVER['DOCUMENT_ROOT'].'/_php/pr_email.php');
-		echo $email.": ";
+		echo "in requestPass";
 		//check that user exists		
 		$getByEmailStr = "SELECT * FROM login where Email = '$email'";
 		$getByEmail = mysqli_query($con, $getByEmailStr);

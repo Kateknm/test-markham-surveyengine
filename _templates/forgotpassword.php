@@ -31,14 +31,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 				echo '<div class = "error">'.$errorMsg.'</div>';
 			}
 			else if(isset($_POST['reqPass']) && $_POST['Email']){
+				//Get User ID
 				$email=$_POST['Email'];
-				//echo $email;
 				$userdo = new Login_DO();
 				$user=$userdo->getUser($email); // Check for user
 				$Subj = $user['LoginID'];
-				echo "<br/>".$Subj."<br/>";
+				//Reset Password Email
 				if(!empty($Subj)){ // If there is a LoginID for user
-				echo "something";
 					$getPass=new Password_DO();
 					$getPass->requestPass($email);
 					if($getPass){
