@@ -37,8 +37,8 @@ $mail = new SendGrid\Mail($to, $subject, $from, $content);
 $apiKey = getenv('MGA_SENDING');
 $sg = new \SendGrid($apiKey);
 $response = $sg->client->mail()->send()->post($mail);
-//echo $response->statusCode();
-//print_r($response->headers());
-//echo $response->body();
+echo $response->statusCode();
+print_r($response->headers());
+echo $response->body();
 }
 ?>
