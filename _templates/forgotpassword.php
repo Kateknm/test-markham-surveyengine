@@ -3,7 +3,7 @@
 include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/login_do.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_php/_objects/password_do.php');
 ?>
-		<form action='#'  method='post' name ='reqPassForm' class="form-horizontal">
+		<form method='post' name ='reqPassForm' class="form-horizontal">
 			<fieldset>
 			<div class="col-md-7 col-centered">
 				<legend>Request New Password</legend>
